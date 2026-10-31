@@ -12,63 +12,63 @@
         "description": "A data visualization project comparing the cost per 100 calories of ultra-processed and minimally processed foods across 24 food categories. The results show that minimally processed foods were cheaper in 13 categories, while ultra-processed foods were cheaper in 11, demonstrating that ultra-processed foods are not always the more affordable option."
     },
     {
-        "title": "Molestias itaque dolor harum!",
+        "title": "One Piece Trading Card Market Analysis",
         "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quae ipsam facilis repellendus corrupti laudantium nobis magni voluptatibus quis praesentium accusamus modi laboriosam, consectetur assumenda earum ipsum. Reiciendis repudiandae temporibus doloribus eius velit placeat molestiae. Odit officiis et iste!"
+        "description": "An exploratory data analysis project examining One Piece trading card market prices, rarity levels, and pricing trends to understand how card characteristics relate to market value."
     },
     {
-        "title": "Cupiditate temporibus consequatur doloremque.",
+        "title": "Music Listening Trends",
         "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Itaque consequuntur ratione ipsa earum labore asperiores pariatur, veniam nulla harum vero nemo, similique, obcaecati vel mollitia sunt nisi in voluptatem dicta praesentium. Ad cumque odit officiis sunt quod ipsam."
+        "description": "A data visualization project exploring popular music genres, artists, and listening patterns."
     },
     {
-        "title": "Deleniti repellat impedit a.",
+        "title": "Interactive Solar System Explorer",
         "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Animi quidem incidunt quo delectus ullam, minima consequatur aliquam dolorum doloribus maiores velit cupiditate laboriosam enim fuga suscipit! Aspernatur molestias sed repellendus iure rerum maiores minima officia dignissimos ducimus veritatis?"
+        "description": "A collaborative web development project featuring an interactive model of the solar system, allowing users to explore different planets and learn about their characteristics, features, and scientific facts."
     },
     {
-        "title": "Totam ullam sed aliquid.",
+        "title": "Simple Quiz Game",
         "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Nesciunt, eaque, eum delectus officia sunt earum est ipsum quam placeat cum excepturi. Veritatis praesentium delectus at iure. Voluptatibus asperiores ullam quis suscipit, dolor totam consequatur placeat odit debitis reprehenderit!"
+        "description": "An interactive quiz game that asks multiple-choice questions and calculates the player's final score."
     },
     {
-        "title": "Quas ducimus est unde.",
+        "title": "Strong Password Generator",
         "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Repellendus aspernatur exercitationem hic alias voluptatum incidunt maiores, esse rem soluta vero suscipit cum. Laudantium vel amet beatae, temporibus animi iure odio alias repellendus maxime, quam iste fugit obcaecati magnam?"
+        "description": "A basic python program that generates random passwords using letters, numbers, and special characters."
     },
     {
-        "title": "Ut vel numquam asperiores!",
+        "title": "Rock Paper Scissors Game",
         "year": 2025,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Possimus perspiciatis veritatis accusamus expedita. Pariatur, distinctio optio quisquam natus necessitatibus repudiandae veniam? Culpa tempore quod, amet odio consequatur ea nesciunt praesentium alias blanditiis deserunt saepe temporibus qui quas ab."
+        "description": "An interactive Python game where users play rock, paper, scissors against the computer with randomized choices."
     },
     {
-        "title": "Illum accusamus laboriosam atque!",
+        "title": "Maze Escape Game",
         "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Pariatur placeat nam aspernatur repellendus, cumque eos magni commodi ipsa. Voluptatibus qui dolorum quae eius labore ipsum eum non doloremque, aliquam cupiditate? Natus optio voluptate expedita veniam voluptas. Vitae, dignissimos?"
+        "description": "A simple Scratch game where players navigate through a maze while avoiding obstacles to reach the finish line."
     },
     {
-        "title": "Necessitatibus eveniet in dolorem!",
+        "title": "Catch the Falling Apples",
         "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Amet, omnis? In rerum magnam deserunt sunt! Culpa nesciunt aliquid beatae, illum facilis molestias atque dolore est officiis voluptatem nihil officia quae molestiae ipsam architecto deleniti dolor fuga amet a?"
+        "description": "An interactive Scratch game where the players move a basket to catch falling apples and earn points."
     },
     {
-        "title": "Explicabo incidunt quibusdam voluptatum?",
+        "title": "Digital Birthday Card",
         "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Deserunt ea quia totam iusto officia corrupti excepturi odio nulla dolor nam sint dolores voluptates minus, qui sed rerum aperiam, possimus labore eius error ducimus quae eaque. Amet, dicta atque."
+        "description": "A simple digital birthday card designed with colorful backgrounds, images, and personalized messages."
     },
     {
-        "title": "Eum, animi! Voluptate, laboriosam.",
+        "title": "Hello World Webpage",
         "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Voluptatem ut quos non doloribus, ullam nam quae architecto soluta. Doloremque ipsam nisi id aperiam consequuntur placeat quo assumenda. Corporis natus ducimus molestias nobis quas facilis eaque necessitatibus ex. Eos!"
+        "description": "A beginner HTML project creating a simple webpage with headings, paragraphs, images, and links to practice basic web development."
     }
 ]
