@@ -200,3 +200,15 @@ section li {
 #projects-pie-plot path {
     transition: opacity 300ms;
 }
+
+.selected {
+    --color: oklch(60% 45% 0) !important;
+}
+
+.legend li.selected .swatch {
+    background-color: var(--color);
+}
+
+#projects-pie-plot path.selected {
+    fill: var(--color);
+}

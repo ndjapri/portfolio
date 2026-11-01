@@ -57,7 +57,34 @@ function renderPieChart(projectsGiven) {
         d3.select('#projects-pie-plot')
             .append('path')
             .attr('d', arc)
-            .attr('fill', colors(idx));
+            .attr('fill', colors(idx))
+            .on('click', () => {
+                selectedIndex = selectedIndex === idx ? -1 : idx;
+            
+                d3.select('#projects-pie-plot')
+                    .selectAll('path')
+                    .attr('class', (_, i) =>
+                        i === selectedIndex ? 'selected' : ''
+                    );
+            
+                d3.select('.legend')
+                    .selectAll('li')
+                    .attr('class', (_, i) =>
+                        i === selectedIndex ? 'selected' : ''
+                    );
+
+                if (selectedIndex === -1) {
+                    renderProjects(projectsGiven, projectsContainer, 'h2');
+                } else {
+                    let selectedYear = data[selectedIndex].label;
+                    
+                    let filteredByYear = projectsGiven.filter((project) =>
+                        String(project.year) === String(selectedYear)
+                    );
+                    
+                    renderProjects(filteredByYear, projectsContainer, 'h2');
+                }
+            });
     });
 
     let legend = d3.select('.legend');
