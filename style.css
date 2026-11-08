@@ -268,3 +268,56 @@ section li {
     stroke: currentColor;
 }
 
+dl.info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+    margin: 0;
+  }
+  
+dl.info dt {
+    color: #888;
+    font-weight: 500;
+}
+  
+dl.info dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+  
+.tooltip {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+  
+    background: var(--color-bg, #fff);
+    color: var(--color-text, #222);
+  
+    padding: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 0.5rem;
+  
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  
+    max-width: 300px;
+    pointer-events: none;
+  
+    transition: opacity 500ms, visibility 500ms;
+}
+  
+dl.info[hidden]:not(:hover, :focus-within) {
+    opacity: 0;
+    visibility: hidden;
+}
+  
+#scatterplot circle {
+    opacity: 0.7;
+    transition: transform 200ms;
+    transform-origin: center;
+    transform-box: fill-box;
+}
+  
+#scatterplot circle:hover {
+    transform: scale(1.5);
+}
