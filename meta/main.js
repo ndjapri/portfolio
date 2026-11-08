@@ -107,6 +107,35 @@ const commits = processCommits(data);
 
 renderCommitInfo(data, commits);
 
+function createBrushSelector(svg, commits, xScale, yScale) {
+    function isCommitSelected(selection, commit) {
+      if (!selection) return false;
+  
+      const [[x0, y0], [x1, y1]] = selection;
+  
+      const x = xScale(commit.datetime);
+      const y = yScale(commit.hourFrac);
+  
+      return x >= x0 && x <= x1 && y >= y0 && y <= y1;
+    }
+  
+    function brushed(event) {
+      const selection = event.selection;
+  
+      svg.selectAll('.dots circle')
+        .classed('selected', (d) =>
+          isCommitSelected(selection, d)
+        );
+    }
+  
+    svg.call(
+      d3.brush()
+        .on('start brush end', brushed)
+    );
+  
+    svg.selectAll('.dots, .overlay ~ *').raise();
+  }
+
 function renderScatterPlot(data, commits) {
   const width = 1000;
   const height = 600;
@@ -185,7 +214,6 @@ function renderScatterPlot(data, commits) {
       updateTooltipVisibility(false);
     });
 
-
   const xAxis = d3.axisBottom(xScale)
     .ticks(6)
     .tickFormat(d3.timeFormat('%b %d'));
@@ -201,6 +229,8 @@ function renderScatterPlot(data, commits) {
   svg.append('g')
     .attr('transform', `translate(${margin.left}, 0)`)
     .call(yAxis);
+
+    createBrushSelector(svg, commits, xScale, yScale);
 }
 
 renderScatterPlot(data, commits);
