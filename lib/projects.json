@@ -1,5 +1,12 @@
 [
     {
+        "title": "Bikewatching: Boston Bike Traffic Visualization",
+        "year": 2026,
+        "image": "../images/bikewatching.png",
+        "description": "An interactive geospatial visualization built with D3.js and Mapbox, exploring bike lanes, station activity, and bike traffic patterns across Boston and Cambridge.",
+        "url": "https://ndjapri.github.io/bikewatching/"
+    },
+    {
         "title": "Abortion Rates and Clinic Access in the U.S.",
         "year": 2026,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",

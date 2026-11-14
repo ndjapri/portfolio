@@ -325,3 +325,8 @@ dl.info[hidden]:not(:hover, :focus-within) {
 #scatterplot circle.selected {
     fill: #ff6b6b;
 }
+
+.searchBar {
+    display: block;
+    margin-bottom: 1.5em;
+}

@@ -4,16 +4,6 @@ function $$(selector, context = document) {
     return Array.from(context.querySelectorAll(selector));
 }
 
-// let navLinks = $$('nav a');
-
-// let currentLink = navLinks.find(
-//     (a) => a.host === location.host && a.pathname === location.pathname,
-// );
-
-// console.log(currentLink);
-
-// currentLink?.classList.add('current');
-
 let pages = [
     { url: '', title: 'Home' },
     { url: 'projects/', title: 'Projects' },
@@ -122,7 +112,11 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         const article = document.createElement('article');
 
         article.innerHTML = `
-            <${headingLevel}>${project.title}</${headingLevel}>
+            <${headingLevel}>
+                ${project.url
+                    ? `<a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.title}</a>`
+                    : project.title}
+            </${headingLevel}>
             <img src="${project.image}" alt="${project.title}">
             <p>${project.description}</p>
         `;
