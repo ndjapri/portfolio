@@ -107,6 +107,32 @@ const commits = processCommits(data);
 
 renderCommitInfo(data, commits);
 
+let commitProgress = 100;
+
+let timeScale = d3.scaleTime()
+  .domain([
+    d3.min(commits, d => d.datetime),
+    d3.max(commits, d => d.datetime)
+  ])
+  .range([0, 100]);
+
+let commitMaxTime = timeScale.invert(commitProgress);
+
+const timeSlider = document.getElementById('commit-progress');
+const commitTime = document.getElementById('commit-time');
+
+function onTimeSliderChange() {
+  commitProgress = Number(timeSlider.value);
+  commitMaxTime = timeScale.invert(commitProgress);
+
+  commitTime.textContent = commitMaxTime.toLocaleString('en-US', {
+    dateStyle: 'long',
+    timeStyle: 'short'
+  });
+}
+
+timeSlider.addEventListener('input', onTimeSliderChange);
+onTimeSliderChange();
 
 function createBrushSelector(svg, commits, xScale, yScale) {
   function isCommitSelected(selection, commit) {
