@@ -105,6 +105,9 @@ function updateTooltipPosition(event) {
 const data = await loadData();
 const commits = processCommits(data);
 
+const colors = d3.scaleOrdinal(d3.schemeTableau10)
+  .domain([...new Set(data.map(d => d.type))]);
+
 renderCommitInfo(data, commits);
 
 let commitProgress = 100;
@@ -129,7 +132,8 @@ function updateFileDisplay(filteredCommits) {
   const files = d3.groups(lines, d => d.file)
     .map(([name, lines]) => {
       return { name, lines };
-    });
+    })
+    .sort((a, b) => b.lines.length - a.lines.length);
 
   const filesContainer = d3.select('#files')
     .selectAll('div.file')
@@ -162,7 +166,8 @@ function updateFileDisplay(filteredCommits) {
     .selectAll('div.loc')
     .data(d => d.lines)
     .join('div')
-    .attr('class', 'loc');
+    .attr('class', 'loc')
+    .style('--color', d => colors(d.type));
 }
 
 function onTimeSliderChange() {
