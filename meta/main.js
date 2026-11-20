@@ -151,8 +151,18 @@ function updateFileDisplay(filteredCommits) {
     .text(d => d.name);
 
   filesContainer
-    .select('dd')
+    .select('dt')
+    .selectAll('small')
+    .data(d => [d])
+    .join('small')
     .text(d => `${d.lines.length} lines`);
+
+  filesContainer
+    .select('dd')
+    .selectAll('div.loc')
+    .data(d => d.lines)
+    .join('div')
+    .attr('class', 'loc');
 }
 
 function onTimeSliderChange() {
