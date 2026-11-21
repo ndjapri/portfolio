@@ -1,5 +1,7 @@
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+import scrollama from 'https://cdn.jsdelivr.net/npm/scrollama@3.2.0/+esm';
+
 async function loadData() {
   const data = await d3.csv('loc.csv', (row) => ({
     ...row,
@@ -431,3 +433,62 @@ function updateScatterPlot(data, commits) {
       updateTooltipVisibility(false);
     });
 }
+
+// Generate a story for each commit
+const storyCommits = d3.sort(commits, d => d.datetime);
+
+d3.select('#scatter-story')
+  .selectAll('.step')
+  .data(storyCommits, d => d.id)
+  .join('div')
+  .attr('class', 'step')
+  .html((d, i) => `
+    On ${d.datetime.toLocaleString('en-US', {
+      dateStyle: 'full',
+      timeStyle: 'short'
+    })}, I made
+    <a href="${d.url}" target="_blank" rel="noopener noreferrer">
+      ${i > 0 ? 'another commit' : 'my first commit'}
+    </a>.
+
+    I edited ${d.totalLines} lines across ${
+      d3.rollups(d.lines, D => D.length, line => line.file).length
+    } files.
+  `);
+
+  // Update visualization when scrolling
+function onStepEnter(response) {
+  const commit = response.element.__data__;
+
+  if (!commit) return;
+
+  commitMaxTime = commit.datetime;
+
+  filteredCommits = commits.filter(
+    d => d.datetime <= commitMaxTime
+  );
+
+  updateScatterPlot(data, filteredCommits);
+
+  updateFileDisplay(filteredCommits);
+
+  commitProgress = timeScale(commitMaxTime);
+  timeSlider.value = commitProgress;
+
+  commitTime.textContent = commitMaxTime.toLocaleString('en-US', {
+    dateStyle: 'long',
+    timeStyle: 'short'
+  });
+}
+
+const scroller = scrollama();
+
+scroller
+  .setup({
+    container: '#scrolly-1',
+    step: '#scrolly-1 .step',
+    offset: 0.5
+  })
+  .onStepEnter(onStepEnter);
+
+window.addEventListener('resize', () => scroller.resize());
