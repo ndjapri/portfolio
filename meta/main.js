@@ -47,8 +47,12 @@ function processCommits(data) {
 
 function renderCommitInfo(data, commits) {
   const dl = d3.select('#stats')
-    .append('dl')
+    .selectAll('dl.stats')
+    .data([null])
+    .join('dl')
     .attr('class', 'stats');
+  
+  dl.selectAll('*').remove();
 
   const stats = [
     ['Total LOC', data.length],
@@ -185,6 +189,11 @@ function onTimeSliderChange() {
 
   updateScatterPlot(data, filteredCommits);
   updateFileDisplay(filteredCommits);
+
+  renderCommitInfo(
+    filteredCommits.flatMap(d => d.lines),
+    filteredCommits
+  );
 }
 
 renderScatterPlot(data, commits);
@@ -471,6 +480,11 @@ function onStepEnter(response) {
   updateScatterPlot(data, filteredCommits);
 
   updateFileDisplay(filteredCommits);
+
+  renderCommitInfo(
+    filteredCommits.flatMap(d => d.lines),
+    filteredCommits
+  );
 
   commitProgress = timeScale(commitMaxTime);
   timeSlider.value = commitProgress;
